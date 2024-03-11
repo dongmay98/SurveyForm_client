@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { IconIpt } from '../../components/input/IptStyleEtc';
-import { BasicIpt } from '../../components/input/IptStyle';
-import { BasicBtn } from '../../components/button/BtnStyle';
-import styles from './css/JoinPage.module.css';
+import { IconIpt } from '../../components/input/EtcIpt';
+import { BasicIpt } from '../../components/input/BasicIpt';
+import { BasicBtn } from '../../components/button/BasicBtn';
+import styles from './css/Join.module.css';
 
 export default function JoinPage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   //입력 정보 useState
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -17,45 +17,44 @@ export default function JoinPage() {
     inputType(e.target.value);
   };
 
-  // 회원가입 API
-  const joinFn = async () => {
-    const reqUrl = 'https://api.mandarin.weniv.co.kr/user';
-    axios
-      .post(reqUrl, {
-        user: {
-          username: username,
-          email: email,
-          password: password,
-          accountname: accountname,
-        },
-      })
-      .then(function (res) {
-        alert('회원가입이 성공했습니다.');
-        // 회원가입 성공 시/join-success로 이동
-        navigate('/join-success', { state: { username } });
-      })
-      .catch(function (error) {
-        alert(error.response.data.message);
-      });
-  };
-  const submitJoin = (e) => {
-    e.preventDefault();
-    joinFn();
-  };
+  // // 회원가입 API
+  // const joinFn = async () => {
+  //   const reqUrl = 'https://api.mandarin.weniv.co.kr/user';
+  //   axios
+  //     .post(reqUrl, {
+  //       user: {
+  //         username: username,
+  //         email: email,
+  //         password: password,
+  //         accountname: accountname,
+  //       },
+  //     })
+  //     .then(function (res) {
+  //       alert('회원가입이 성공했습니다.');
+  //       // 회원가입 성공 시/join-success로 이동
+  //       navigate('/join-success', { state: { username } });
+  //     })
+  //     .catch(function (error) {
+  //       alert(error.response.data.message);
+  //     });
+  // };
+  // const submitJoin = (e) => {
+  //   e.preventDefault();
+  //   joinFn();
+  // };
 
 
   return (
     <section className={styles.pageWrap}>
-      <h2 className="a11y-hidden">회원 가입</h2>
       <div className={styles['join-Box']}>
         <div className={styles['title-box']}>
-          <h3 className={styles['join-title']}>리드위 회원가입</h3>
+          <h3 className={styles['join-title']}>회원가입</h3>
           <strong className={styles['join-ment']}>
-            아이디와 이메일로 간편하게 리드위를 시작하세요!
+            아이디와 이메일로 간편하게 구글폼 제작!
           </strong>
         </div>
         <div className={styles['info-box']}>
-          <label className={styles['img-upload']}>
+          {/* <label className={styles['img-upload']}>
             <div className={styles['img-box']}>
             </div>
             <input
@@ -64,7 +63,7 @@ export default function JoinPage() {
               name="image"
               accept="image/*"
             />
-          </label>
+          </label> */}
           <IconIpt>
             <BasicIpt
               gray="true"
@@ -110,7 +109,10 @@ export default function JoinPage() {
             />
             <i className="icon icon-user-w" />
           </IconIpt>
-          <BasicBtn type="submit" onClick={submitJoin}>
+          <BasicBtn 
+          type="submit" 
+          // onClick={submitJoin}
+          >
             가입하기
           </BasicBtn>
         </div>

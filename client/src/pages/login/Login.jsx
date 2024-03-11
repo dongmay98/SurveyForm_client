@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styles from './css/Login.module.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { IconIpt } from '../../components/input/IptStyleEtc';
-import { BasicIpt } from '../../components/input/IptStyle';
-import { BasicBtn } from '../../components/button/BtnStyle';
+import { IconIpt } from '../../components/input/EtcIpt';
+import { BasicIpt } from '../../components/input/BasicIpt';
+import { BasicBtn } from '../../components/button/BasicBtn';
 import axios from 'axios';
 
 export default function LoginPage() {
