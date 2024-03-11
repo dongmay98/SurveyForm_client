@@ -1,0 +1,240 @@
+.pageWrap {
+  width: calc(100% - 50px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+/* join */
+.join-Box {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+/* 타이틀 영역 */
+.title-box {
+  margin: 20px 0;
+  text-align: center;
+}
+.title-box .join-title {
+  font-family: "Pretendard-Bold";
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.title-box .join-ment {
+  display: block;
+  color: #ABABAB;
+  font-size: 18px;
+}
+.info-box button {
+  transition: background-color 0.3s;
+}
+.info-box button:active {
+  background-color: #E87C3E; 
+}
+.info-box button:hover {
+  background-color: #E87C3E; 
+}
+
+/* 정보 입력 영역 */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.img-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.img-box {
+  border: 1px solid #eee;
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+.img-box>img {
+  min-width: 110px;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* join finish */
+.page-wrap {
+  height: calc(100vh - 79px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.loginfinish-container {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 79px);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 543px;
+  z-index: 50;
+}
+.loginfinish-container h1{
+  font-family: "Pretendard-Bold";
+  color: #000;
+  text-align: center;
+  font-size: 24px;
+  margin: 10px 0;
+}
+.loginfinish-container .lgn-p {
+  font-family: "Pretendard-Medium";
+  color: #ABABAB;
+  text-align: center;
+  font-size: 20px;
+}
+.lgn-link {
+  margin: 26px 0;
+  padding: 0 15px;
+  width: 100%;
+  max-width: calc(100% - 50px);
+  transform: translateX(25px);
+  height: 136px;
+  border-radius: 15px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s;
+}
+.lgn-link:hover {
+  background-color: #d7e7fa; 
+}
+.lgn-icon,.lgn-icon-1 {
+  flex-shrink: 0;
+  width: 67px;
+  height: 67px;
+  /* background-image: url('/public/icon/3dicons.png'); */
+  background-position: center;
+  background-size: 70px;
+  background-repeat: no-repeat;
+}
+.lgn-icon-1 {
+  /* background-image: url('/public/icon/3dicons-1.png'); */
+}
+.lgn-ment p{
+  margin: 10px 0;
+  font-family: "Pretendard-Medium";
+}
+.lgn-ment :nth-child(1) {
+  color: rgba(0, 0, 0, 0.80);
+  font-size: 20px;
+}
+.lgn-ment :nth-child(2) {
+  color: #ABABAB;
+  font-size: 18px;
+}
+
+/* 꼬불이 */
+.lgn-img1 {
+  background-position: center;
+  background-size: 300px;
+  width: 190px;
+  height: 170px;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 5%;
+  /* background-image: url('/public/images/Image.png'); */
+}
+
+/* 물결 */
+.lgn-img2 {
+  background-position: center;
+  width: 200px;
+  height: 200px;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  transform: rotate(-20deg);
+  top: 50px;
+  right: 10%;
+  /* background-image: url('/public/images/Image-1.png'); */
+}
+
+/* 도넛 */
+.lgn-img3 {
+  background-size: 250px;
+  background-position: contain;
+  width: 300px;
+  height: 300px;
+  background-repeat: no-repeat;
+  bottom: 70px;
+  left: -85px;
+  /* background-image: url('/public/images/Image-2.png'); */
+}
+/* & */
+.lgn-img4 {
+  background-position: center;
+  width: 200px;
+  height: 200px;
+  transform: rotate(20deg);
+  background-size: 150px;
+  background-repeat: no-repeat;
+  bottom: 0px;
+  right: 0px;
+  /* background-image: url('/public/images/Image-3.png'); */
+
+}
+.lgn-img1,
+.lgn-img2,
+.lgn-img3,
+.lgn-img4 {
+  position: absolute;
+}
+
+
+@media (max-width: 750px){
+  .lgn-img1 {
+    background-size: 160px;
+    width: 100px;
+    height: 120px;
+    top: 0;
+    left: 0;
+  }
+  .lgn-img2 {
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    top: -10px;
+    right: -10px;
+  }
+  .lgn-img3 {
+    bottom: 70px;
+    left: 0px;
+    width: 100px;
+    height: 140px;
+    background-size: 100px;
+  }
+  
+}
+@media (max-width: 480px){
+  .title-box .join-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  .title-box .join-ment {
+    font-size: 13px;
+  }
+  .info-box {
+    gap: 10px;
+  }
+  .info-box input{
+    padding: 18px 24px;
+    border-radius: 8px;
+    font-size: 12px;
+    box-shadow: none;
+  }
+  .info-box button{
+    margin-top: 30px;
+    height: 60px;
+    font-size: 15px;
+  }
+}
