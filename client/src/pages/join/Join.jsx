@@ -7,41 +7,39 @@ import { BasicBtn } from '../../components/button/BasicBtn';
 import styles from './css/Join.module.css';
 
 export default function JoinPage() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   //입력 정보 useState
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [accountname, setAccountname] = useState('');
   const [password, setPassword] = useState('');
   const inputInfo = (e, inputType) => {
     inputType(e.target.value);
   };
 
-  // // 회원가입 API
-  // const joinFn = async () => {
-  //   const reqUrl = 'https://api.mandarin.weniv.co.kr/user';
-  //   axios
-  //     .post(reqUrl, {
-  //       user: {
-  //         username: username,
-  //         email: email,
-  //         password: password,
-  //         accountname: accountname,
-  //       },
-  //     })
-  //     .then(function (res) {
-  //       alert('회원가입이 성공했습니다.');
-  //       // 회원가입 성공 시/join-success로 이동
-  //       navigate('/join-success', { state: { username } });
-  //     })
-  //     .catch(function (error) {
-  //       alert(error.response.data.message);
-  //     });
-  // };
-  // const submitJoin = (e) => {
-  //   e.preventDefault();
-  //   joinFn();
-  // };
+  // 회원가입 API
+  const joinFn = async () => {
+    const reqUrl = 'http://localhost:8080/join';
+    axios
+      .post(reqUrl, {
+        username: username,
+        email: email,
+        password: password,
+      })
+      .then(function (res) {
+        console.log(res); // 응답 객체 전체를 확인
+        alert('회원가입이 성공했습니다.');
+        // 회원가입 성공 시 원하는 경로로 이동
+        // navigate('/join-success', { state: { username } });
+      })
+      .catch(function (error) {
+        console.log(error); // 에러 객체 전체를 확인
+        alert(error.response.data.message);
+      });
+  };
+  const submitJoin = (e) => {
+    e.preventDefault();
+    joinFn();
+  };
 
 
   return (
@@ -54,16 +52,6 @@ export default function JoinPage() {
           </strong>
         </div>
         <div className={styles['info-box']}>
-          {/* <label className={styles['img-upload']}>
-            <div className={styles['img-box']}>
-            </div>
-            <input
-              type="file"
-              id="profileImg"
-              name="image"
-              accept="image/*"
-            />
-          </label> */}
           <IconIpt>
             <BasicIpt
               gray="true"
@@ -87,17 +75,6 @@ export default function JoinPage() {
             />
             <i className="icon icon icon-lock-w" />
           </IconIpt>
-          {/* <IconIpt>
-            <BasicIpt
-              gray="true"
-              placeholder="아이디"
-              value={accountname}
-              onChange={(e) => {
-                inputInfo(e, setAccountname);
-              }}
-            />
-            <i className="icon icon-user-w" />
-          </IconIpt> */}
           <IconIpt>
             <BasicIpt
               gray="true"
@@ -111,7 +88,7 @@ export default function JoinPage() {
           </IconIpt>
           <BasicBtn 
           type="submit" 
-          // onClick={submitJoin}
+          onClick={submitJoin}
           >
             가입하기
           </BasicBtn>
