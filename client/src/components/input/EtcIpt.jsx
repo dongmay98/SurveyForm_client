@@ -12,6 +12,7 @@ const LabelIpt = styled.label`
 `;
 const IconIpt = styled.div`
   position: relative;
+  display: flex;
   ${BasicIpt} {
     padding-left: 50px !important;
   }

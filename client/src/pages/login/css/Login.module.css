@@ -1,0 +1,129 @@
+/*======페이지 공통 영역=====*/
+.pageWrap {
+  width: calc(100% - 50px);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+.contentArea {
+  margin: 0 auto;
+  padding: 35px;
+  max-width: 580px;
+  width: 100%;
+}
+
+/*======로그인 css=====*/
+.login-info {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.login-info .title-box {
+  margin-bottom: 60px;
+}
+.login-info .input-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+.login-info .input-box input[type='text'], .login-info .input-box input[type='password'] {
+  background-color: #fcfcfc;
+  border: 1px solid #c7c7c7;
+}
+.login-info .login-check{
+  display: inline-block;
+  margin-top: 24px;
+  cursor:pointer;
+}
+/*start__로그인 상태 유지: 체크박스 커스텀*/
+.login-info .login-check input[type="checkbox"]{
+  display:none;
+}
+.login-info .login-check .check-text{
+  padding-left: 5px;
+  color: #777;
+  text-align: center;
+  font-size: 14px;
+}
+.login-info .login-check .check-icon:before{
+  content:"";
+  display:inline-block;
+  width:17px;
+  height:17px;
+  border:1px solid #A7A7A7;
+  border-radius: 50%;
+  vertical-align:middle;
+  /* background-image: url(/public/images/icon/disable-check.svg); */
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.login-info .login-check input[type="checkbox"]:checked + .check-icon:before{
+  background-color:black;
+  /* background-image: url(/public/images/icon/checkbox.svg); */
+}
+/* end__로그인 상태 유지: 체크박스 커스텀*/
+
+.login-info button{
+  margin-top: 80px;
+  transition: background-color 0.3s; 
+}
+.login-info button:hover {
+  background-color: #E87C3E;
+}
+
+.login-etc .find-id-join {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 40px 0;
+  border-bottom: 1px solid #bfbfbf;
+  color: #A7A7A7;
+  text-align: center;
+  font-size: 14px;
+}
+.login-etc .find-id-join .logintojoin {
+  margin-left: 10px;
+}
+.login-etc .find-id-join .logintojoin:hover {
+  color: #E87C3E; 
+}
+.other-acc .title {
+  text-align: center;
+  color: #535353;
+  font-size: 15px;
+  margin: 40px 0;
+}
+.other-acc .other-acc-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.other-acc .other-acc-list .list-obj>button {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  border-radius: 100%;
+}
+.other-acc .other-acc-list .list-obj>button.email-image {
+  /* background-image: url(/public/icon/apple.png); */
+}
+.other-acc .other-acc-list .list-obj>button.kakao-image {
+  /* background-image: url(/public/icon/kakaotalk_sharing_btn_medium.png); */
+  background-size: 40px;
+  background-color: #ffeb03;
+}
+.other-acc .other-acc-list .list-obj>button.naver-image {
+  /* background-image: url(/public/icon/naver.png); */
+}
+.other-acc .other-acc-info {
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  color: #A7A7A7;
+}
