@@ -1,12 +1,15 @@
 import React from "react";
-// import ReactDOM from 'react-dom'; //구버전
 import { createRoot } from "react-dom/client";
 import App from "./App";
+import { HashRouter } from 'react-router-dom';
 
-const container = document.getElementById("root");
-const root = createRoot(container);
+const container = document.getElementById("root"); // 컨테이너 가져오기
+const root = createRoot(container); // createRoot를 사용하여 루트 생성
+
 root.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>
 );

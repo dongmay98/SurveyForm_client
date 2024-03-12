@@ -87,7 +87,7 @@ export default function JoinPage() {
             />
             <i className="icon icon icon-lock-w" />
           </IconIpt>
-          <IconIpt>
+          {/* <IconIpt>
             <BasicIpt
               gray="true"
               placeholder="아이디"
@@ -97,7 +97,7 @@ export default function JoinPage() {
               }}
             />
             <i className="icon icon-user-w" />
-          </IconIpt>
+          </IconIpt> */}
           <IconIpt>
             <BasicIpt
               gray="true"
