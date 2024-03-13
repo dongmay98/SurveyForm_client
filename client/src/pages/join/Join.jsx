@@ -26,13 +26,13 @@ export default function JoinPage() {
         password: password,
       })
       .then(function (res) {
-        console.log(res); // 응답 객체 전체를 확인
+        console.log(res);
         alert('회원가입이 성공했습니다.');
-        // 회원가입 성공 시 원하는 경로로 이동
-        // navigate('/join-success', { state: { username } });
+        // 회원가입 성공 시 login 페이지로 이동
+        navigate('/');
       })
       .catch(function (error) {
-        console.log(error); // 에러 객체 전체를 확인
+        console.log(error);
         alert(error.response.data.message);
       });
   };
