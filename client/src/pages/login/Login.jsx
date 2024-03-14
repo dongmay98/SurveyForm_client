@@ -35,7 +35,7 @@ export default function LoginPage() {
       .then((res) => {
         console.log('로그인 성공!', res);
         alert('로그인성공')
-        // navigate('/main'); // 로그인 성공 후 리디렉션할 경로
+        navigate('/main'); // 로그인 성공 후 리디렉션할 경로
       })
       .catch((error) => {
         console.error('로그인 실패:', error);
