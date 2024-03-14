@@ -19,9 +19,6 @@
   gap: 20px;
   align-items: center;
 }
-.login-info .title-box {
-  margin-bottom: 60px;
-}
 .login-info .input-box {
   width: 100%;
   display: flex;
@@ -35,7 +32,7 @@
 }
 .login-info .login-check{
   display: inline-block;
-  margin-top: 24px;
+  margin-bottom: 24px;
   cursor:pointer;
 }
 /*start__로그인 상태 유지: 체크박스 커스텀*/
@@ -67,7 +64,6 @@
 /* end__로그인 상태 유지: 체크박스 커스텀*/
 
 .login-info button{
-  margin-top: 80px;
   transition: background-color 0.3s; 
 }
 .login-info button:hover {
@@ -78,7 +74,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 40px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #bfbfbf;
   color: #A7A7A7;
   text-align: center;
