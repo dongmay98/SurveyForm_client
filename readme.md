@@ -1,3 +1,5 @@
-# 구글폼 웹사이트 제작 개인프로젝트
+# 구글폼 웹사이트 제작 개인프로젝트 [ Typescript+ node.js(express) ]
 
-## Front Stack : React, Styled-component, Axios, Redux, Module.css, React-Router
+## client 레포지토리
+
+### Front Stack : Typescript,Redux, Styled-component, Axios, Module.css, React-Router
