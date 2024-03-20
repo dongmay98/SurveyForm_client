@@ -3,14 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@reduxjs/toolkit": "^2.2.2",
+=======
+>>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+<<<<<<< HEAD
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "@types/react-redux": "^7.1.33",
+=======
+    "@types/node": "^16.18.91",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+>>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.6.8",
     "react": "^18.2.0",
@@ -45,7 +54,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@types/node": "^20.11.30",
+=======
+>>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
     "@types/styled-components": "^5.1.34",
     "typescript": "^4.9.5"
   }

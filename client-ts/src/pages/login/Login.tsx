@@ -8,6 +8,10 @@ import { BasicBtn } from '../../components/button/BasicBtn';
 import axios from 'axios';
 
 export default function Login() {
+<<<<<<< HEAD
+=======
+  // `useState`를 사용할 때 상태에 대한 타입을 지정합니다.
+>>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
