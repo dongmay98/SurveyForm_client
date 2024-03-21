@@ -11,12 +11,22 @@ const GlobalStyle = createGlobalStyle`
         width: 700px;
         height: 100vh;
         margin: auto;
-        background-color:lavender;
+        background-color:lightgray;
     }
 
     a {
         text-decoration:none;
         color:black;
+    }
+
+    ul {
+        list-style-type: none; 
+        padding: 0;
+        margin: 0; 
+    }
+
+    li {
+        list-style-type: none;
     }
 `;
 

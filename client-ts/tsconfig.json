@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "target": "es6",
+    "types": ["node"],
     "lib": [
       "dom",
       "dom.iterable",

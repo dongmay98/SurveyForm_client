@@ -1,0 +1,186 @@
+.pageWrap {
+  width: 100%;
+}
+
+/* head css */
+.header {
+  margin-top: 20px;
+  width: 100%;
+  height: 160px;
+  border-width: 10px 1px 1px;
+  border-style: solid;
+  border-color: orange lightgrey lightgrey;
+  border-image: initial;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+.headTitle {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 24px;
+}
+
+.headExplain {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* main css */
+
+.main {
+  width: 100%;
+  position: relative;
+}
+
+.mainList {
+  position: relative;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+.titleSelect {
+  display: flex;
+  justify-content: space-between  ;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+}
+.titleSelect input {
+  font-size: 18px;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 5px;
+}
+.case {
+  position: relative;
+  font-size: 14px;
+  bottom: 5px;
+  padding: 3px;
+  width: 250px;
+  height: 50px;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.optionContainer {
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.optionContainer li {
+  position: relative;
+  display: flex;
+  margin-bottom: 15px;
+}
+.option {
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+}
+.addOption{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  border-radius: 15px;
+  font-size: 14px;
+  width: 70px;
+  height: 30px;
+  color: black;
+  /* background-color: rgb(255, 201, 100); */
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+  border: none;
+}
+
+.addOption:hover {
+  background-color: orange;
+  border: none;
+  color: white;
+}
+
+.copyPasteContainer {
+  padding: 10px;
+  margin-top: 6px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.copyPasteContainer button {
+  display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border: none;
+    padding: 2px;
+    border-radius: 15px;
+    font-size: 14px;
+    width: 50px;
+    height: 30px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+.copyPasteContainer button:hover {
+  background-color: orange; /* hover 시 배경색을 검정색으로 변경 */
+  border: none;
+  color: white;
+}
+
+.deleteOption{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  border-radius: 15px;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  color: black;
+  /* background-color: rgb(255, 201, 100); */
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+  border: none;
+}
+
+.deleteOption:hover {
+  background-color: orange; /* hover 시 배경색을 검정색으로 변경 */
+  border: none;
+  color: white;
+}
