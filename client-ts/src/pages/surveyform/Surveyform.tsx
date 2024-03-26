@@ -1,118 +1,51 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/index';
 import styles from './css/SurveyStyle.module.css';
-
-type OptionType = {
-  id: number;
-  text: string;
-};
+import {Header,HeadTitle,HeadExplain} from '../../components/header/HeaderStyle'
+import {
+  setTitle,
+  setDesc,
+  setQuestionTitle,
+  setQuestionType,
+  setQuestionOptionText,
+  addQuestionOption,
+  deleteQuestionOption,
+  copyQuestion,
+  deleteQuestion,
+  addQuestion,
+} from '../../store/surveySlice';// SurveySlice
+import MainContainer from './main/MainContainer';
 
 export default function SurveyForm() {
-  const [options, setOptions] = useState<OptionType[]>([{ id: 1, text: '옵션1' }]);
-  const [mainElements, setMainElements] = useState<React.ReactElement[]>([]);
+  const dispatch = useDispatch();
+  // 스토어의 survey 상태를 선택하기 위해 RootState 타입을 사용합니다.
+  const survey = useSelector((state: RootState) => state.survey);
 
-  const addOption = () => {
-    const newOptionId = options[options.length - 1].id + 1;
-    setOptions([...options, { id: newOptionId, text: `옵션${newOptionId}` }]);
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setTitle({ surveyTitle: e.target.value }));
   };
 
-  const updateOptionText = (id: number, text: string) => {
-    setOptions(options.map(option => (option.id === id ? { ...option, text } : option)));
-  };
-
-  const deleteOption = (id: number) => {
-    if (options.length > 1) {
-      setOptions(options.filter(option => option.id !== id));
-    } else {
-      alert("최소 한개이상의 옵션이 필요합니다.");
-    }
-  };
-
-  const copyMainElement = () => {
-    const mainElement = (
-      <li className={styles.mainList}>
-        <div className={styles.titleSelect}>
-          <input type="text" placeholder="질문 제목" />
-          <select className={styles.case}>
-            <option value="단답형">단답형</option>
-            <option value="객관식">객관식</option>
-            <option value="체크박스">체크박스</option>
-          </select>
-        </div>
-        <div className={styles.optionContainer}>
-          <ul>
-            {options.map(option => (
-              <li key={option.id}>
-                <input
-                  className={styles.option}
-                  type="text"
-                  value={option.text}
-                  onChange={e => updateOptionText(option.id, e.target.value)}
-                />
-                <button className={styles.deleteOption} onClick={() => deleteOption(option.id)}>
-                  X
-                </button>
-              </li>
-            ))}
-          </ul>
-          <button className={styles.addOption} onClick={addOption} type="button">
-            옵션 추가
-          </button>
-        </div>
-        <div className={styles.copyPasteContainer}>
-          <button onClick={copyMainElement}>복사</button>
-          <button>삭제</button>
-        </div>
-      </li>
-    );
-
-    setMainElements([...mainElements, React.cloneElement(mainElement)]);
+  const handleDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setDesc({ desc: e.target.value }));
   };
 
   return (
     <section className={styles.pageWrap}>
-      <header className={styles.header}>
-        <input className={styles.headTitle} placeholder="설문지 제목" />
-        <input className={styles.headExplain} placeholder="설문지 설명" />
-      </header>
-      <main className={styles.main}>
-        <ul>
-          <li className={styles.mainList}>
-            <div className={styles.titleSelect}>
-              <input type="text" placeholder="질문 제목" />
-              <select className={styles.case}>
-                <option value="단답형">단답형</option>
-                <option value="객관식">객관식</option>
-                <option value="체크박스">체크박스</option>
-              </select>
-            </div>
-            <div className={styles.optionContainer}>
-              <ul>
-                {options.map(option => (
-                  <li key={option.id}>
-                    <input
-                      className={styles.option}
-                      type="text"
-                      value={option.text}
-                      onChange={e => updateOptionText(option.id, e.target.value)}
-                    />
-                    <button className={styles.deleteOption} onClick={() => deleteOption(option.id)}>
-                      X
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <button className={styles.addOption} onClick={addOption} type="button">
-                옵션 추가
-              </button>
-            </div>
-            <div className={styles.copyPasteContainer}>
-              <button onClick={copyMainElement}>복사</button>
-              <button>삭제</button>
-            </div>
-          </li>
-        </ul>
-        {mainElements.map((element, index) => React.cloneElement(element, { key: index }))}
-      </main>
+      <Header>
+        <HeadTitle
+          placeholder="설문지 제목"
+          value={survey.surveyTitle}
+          onChange={handleTitleChange}
+        />
+        <HeadExplain
+          placeholder="설문지 설명"
+          value={survey.desc}
+          onChange={handleDescChange}
+        />
+      </Header>
+      <MainContainer/>
+
     </section>
   );
 }
