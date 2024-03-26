@@ -2,10 +2,7 @@
   "compilerOptions": {
     "allowImportingTsExtensions": true,
     "target": "es6",
-<<<<<<< HEAD
     "types": ["node"],
-=======
->>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
     "lib": [
       "dom",
       "dom.iterable",
