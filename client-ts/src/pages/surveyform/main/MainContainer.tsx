@@ -1,42 +1,29 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/index';
-import {
-  setTitle,
-  setDesc,
-  setQuestionTitle,
-  setQuestionType,
-  setQuestionOptionText,
-  addQuestionOption,
-  deleteQuestionOption,
-  copyQuestion,
-  deleteQuestion,
-  addQuestion,
-} from '../../../store/surveySlice';
 import {ActionButton,AddOptionButton,CaseSelect,CopyPasteContainer,DeleteOptionButton,Main,MainList,OptionContainer,OptionInput,TitleInput,TitleSelect} from '../../../components/main/mainSurvey'
+import QuestionTypeSelect from '../QuestionTypeSelect/QuestionTypeSelect';
+import { QUESTION_TYPE } from 'QuestionType';
+import ShortOption from '../ShortOption/ShortOption';
+import MultipleOption from '../MultipleOption/MultipleOption';
+import CheckboxOption from '../CheckboxOption/CheckboxOption';
 
 export default function MainContainer() {
   const dispatch = useDispatch();
-  // 스토어의 survey 상태를 선택하기 위해 RootState 타입을 사용합니다.
   const survey = useSelector((state: RootState) => state.survey);
+  const { questions } = survey;
+  const currentQuestion = questions[0];
+
 
   return (
       <Main>
       <MainList>
         <TitleSelect>
-          <TitleInput type="text" placeholder="질문 제목" />
-          <CaseSelect>
-            <option value="단답형">단답형</option>
-            <option value="객관식">객관식</option>
-            <option value="체크박스">체크박스</option>
-          </CaseSelect>
+          <TitleInput type="text" placeholder="질문 제목" value={currentQuestion.questionTitle} />
+          <QuestionTypeSelect questionIndex={0} />
         </TitleSelect>
-        <OptionContainer>
-          <li>
-            <OptionInput type="text" />
-            <DeleteOptionButton>X</DeleteOptionButton>
-          </li>
-          <AddOptionButton type="button">옵션 추가</AddOptionButton>
-        </OptionContainer>
+        {currentQuestion.type === QUESTION_TYPE.SHORT && <ShortOption questionIndex={0} />}
+        {currentQuestion.type === QUESTION_TYPE.MULTIPLE && <MultipleOption questionIndex={0} />}
+        {currentQuestion.type === QUESTION_TYPE.CHECKBOX && <CheckboxOption questionIndex={0} />}
         <CopyPasteContainer>
           <ActionButton>복사</ActionButton>
           <ActionButton>삭제</ActionButton>

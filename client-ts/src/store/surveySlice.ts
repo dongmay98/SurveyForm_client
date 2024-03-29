@@ -15,7 +15,7 @@ const initialState: surveyState = {
       questionTitle: "제목 없는 질문",
       type: QUESTION_TYPE.MULTIPLE,
       required: true,
-      options: ["옵션1"],
+      options: ["옵션1"], 
     },
   ],
 };
