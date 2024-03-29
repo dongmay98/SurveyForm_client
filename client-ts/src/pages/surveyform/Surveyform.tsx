@@ -19,13 +19,12 @@ import MainContainer from './main/MainContainer';
 
 export default function SurveyForm() {
   const dispatch = useDispatch();
-  // 스토어의 survey 상태를 선택하기 위해 RootState 타입을 사용합니다.
   const survey = useSelector((state: RootState) => state.survey);
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setTitle({ surveyTitle: e.target.value }));
   };
-
+  
   const handleDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setDesc({ desc: e.target.value }));
   };
