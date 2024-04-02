@@ -1,7 +1,8 @@
-import { useDispatch } from 'react-redux';
-import { setQuestionType } from '../../../store/surveySlice';
-import styled from 'styled-components';
-import { QUESTION_TYPE } from '../../../QuestionType';
+import { useDispatch } from "react-redux";
+import { setQuestionType } from "../../../store/surveySlice";
+import styled from "styled-components";
+import { QUESTION_TYPE } from "../../../QuestionType";
+import { useAppSelector } from "store";
 
 const StyledCaseSelect = styled.select`
   position: relative;
@@ -21,13 +22,18 @@ interface QuestionTypeSelectProps {
 
 const QuestionTypeSelect = ({ questionIndex }: QuestionTypeSelectProps) => {
   const dispatch = useDispatch();
-
+  const checkedType = useAppSelector(
+    (state) => state.survey.questions[questionIndex].type
+  );
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setQuestionType({ questionIndex, type: e.target.value }));
+    console.log(questionIndex);
+    dispatch(
+      setQuestionType({ questionIndex, type: e.target.value })
+    );
   };
 
   return (
-    <StyledCaseSelect onChange={handleChange}>
+    <StyledCaseSelect value={checkedType} onChange={handleChange}>
       <option value={QUESTION_TYPE.SHORT}>단답형</option>
       <option value={QUESTION_TYPE.MULTIPLE}>객관식</option>
       <option value={QUESTION_TYPE.CHECKBOX}>체크박스</option>
