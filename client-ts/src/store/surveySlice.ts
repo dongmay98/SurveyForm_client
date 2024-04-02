@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Question,QUESTION_TYPE,QUESTION_TYPE_ARRAY } from "../QuestionType";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Question, QUESTION_TYPE, QUESTION_TYPE_ARRAY } from "../QuestionType";
 
 export interface surveyState {
   surveyTitle: string;
@@ -12,14 +12,13 @@ const initialState: surveyState = {
   desc: "",
   questions: [
     {
-      questionTitle: "제목 없는 질문",
+      questionTitle: "",
       type: QUESTION_TYPE.MULTIPLE,
       required: true,
-      options: ["옵션1"], 
+      options: ["옵션1"],
     },
   ],
 };
-
 
 export const surveySlice = createSlice({
   name: "survey",
@@ -56,17 +55,18 @@ export const surveySlice = createSlice({
       switch (type) {
         case QUESTION_TYPE.SHORT:
           state.questions[questionIndex].text = "단답형 텍스트";
+          console.log(type);
           return;
 
         case QUESTION_TYPE.MULTIPLE:
           state.questions[questionIndex].options = ["옵션1"];
+          console.log(type);
           return;
-
 
         case QUESTION_TYPE.CHECKBOX:
           state.questions[questionIndex].options = ["옵션1"];
+          console.log(type);
           return;
-
       }
     },
 
@@ -86,7 +86,8 @@ export const surveySlice = createSlice({
     // 질문(객관식, 체크박스, 드롭다운 유형) option 추가
     addQuestionOption(state, action: PayloadAction<{ questionIndex: number }>) {
       const questionIndex = action.payload.questionIndex;
-      const newIndex = Number(state.questions[questionIndex].options!.length) + 1;
+      const newIndex =
+        Number(state.questions[questionIndex].options!.length) + 1;
       const initialValue = `옵션${newIndex}`;
 
       state.questions[questionIndex].options!.push(initialValue);
@@ -134,7 +135,6 @@ export const surveySlice = createSlice({
 
       state.questions.push(newQuestion);
     },
-
   },
 });
 
@@ -150,4 +150,3 @@ export const {
   deleteQuestion,
   addQuestion,
 } = surveySlice.actions;
-
