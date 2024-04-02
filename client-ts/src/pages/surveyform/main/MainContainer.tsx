@@ -13,7 +13,7 @@ import {
   TitleInput,
   TitleSelect,
 } from "../../../components/main/mainSurvey";
-import { setQuestionTitle } from "../../../store/surveySlice";
+import { copyQuestion, setQuestionTitle } from "../../../store/surveySlice";
 import QuestionTypeSelect from "../QuestionTypeSelect/QuestionTypeSelect";
 import { QUESTION_TYPE } from "QuestionType";
 import ShortOption from "../ShortOption/ShortOption";
@@ -32,6 +32,13 @@ export default function MainContainer() {
       setQuestionTitle({
         questionIndex: index,
         questionTitle: e.target.value,
+      })
+    );
+  };
+  const AddQuestion = (index: number) => {
+    dispatch(
+      copyQuestion({
+        questionIndex: index,
       })
     );
   };
@@ -65,7 +72,9 @@ export default function MainContainer() {
                 }
               })()}
               <CopyPasteContainer>
-                <ActionButton>복사</ActionButton>
+                <ActionButton onClick={() => AddQuestion(index)}>
+                  복사
+                </ActionButton>
                 <ActionButton>삭제</ActionButton>
               </CopyPasteContainer>
             </MainList>

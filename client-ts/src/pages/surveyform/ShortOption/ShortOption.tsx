@@ -1,5 +1,16 @@
-const ShortOptionContainer = ({ questionIndex }:{ questionIndex : number}) => {
-  return <input type="text" placeholder="단답형 텍스트" />;
+import styled from "styled-components";
+
+const ShortAnswer = styled.p`
+  font-size: 14px;
+  color: grey;
+  padding: 5px;
+  border-bottom: 1px dotted grey;
+  user-select: none;
+  margin-left: 5px;
+  margin-top: 8px;
+`;
+const ShortOptionContainer = ({ questionIndex }: { questionIndex: number }) => {
+  return <ShortAnswer>단답형 텍스트</ShortAnswer>;
 };
 
 export default ShortOptionContainer;

@@ -41,6 +41,7 @@ export const surveySlice = createSlice({
     ) {
       state.questions[action.payload.questionIndex].questionTitle =
         action.payload.questionTitle;
+      console.log(action.payload.questionTitle);
     },
 
     // 질문의 유형 업데이트
