@@ -11,18 +11,13 @@ const GlobalStyle = createGlobalStyle`
         width: 700px;
         height: 100vh;
         margin: auto;
-<<<<<<< HEAD
         background-color:lightgray;
-=======
-        background-color:lavender;
->>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
     }
 
     a {
         text-decoration:none;
         color:black;
     }
-<<<<<<< HEAD
 
     ul {
         list-style-type: none; 
@@ -33,8 +28,13 @@ const GlobalStyle = createGlobalStyle`
     li {
         list-style-type: none;
     }
-=======
->>>>>>> 28211f6 (Refactor: 현재까지 코드 TS로 리팩토링)
+    input {
+        &:hover {
+            border-bottom: 1px solid lightgray;
+        }
+        &:focus {
+            border-bottom: 1px solid orange;
+    }
 `;
 
 export default GlobalStyle;

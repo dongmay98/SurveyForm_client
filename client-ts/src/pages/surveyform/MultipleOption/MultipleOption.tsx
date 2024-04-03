@@ -1,10 +1,61 @@
-import { AddOptionButton, OptionContainer } from "components/main/mainSurvey";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store";
+import {
+  addQuestionOption,
+  setQuestionOptionText,
+} from "../../../store/surveySlice";
+import {
+  AddOptionButton,
+  OptionContainer,
+  OptionInput,
+} from "../../../components/main/mainSurvey";
+import OptionDeleteButton from "../../../components/button/DeleteOptionButton";
 
 const MultipleOption = ({ questionIndex }: { questionIndex: number }) => {
+  const dispatch = useDispatch();
+  const { questions } = useSelector((state: RootState) => state.survey);
+  const options = questions[questionIndex].options || [];
+
+  const handleOptionChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    optionIndex: number
+  ) => {
+    dispatch(
+      setQuestionOptionText({
+        questionIndex,
+        optionIndex,
+        text: e.target.value,
+      })
+    );
+  };
+
+  const handleAddOption = () => {
+    dispatch(addQuestionOption({ questionIndex }));
+  };
+
   return (
     <>
-      <OptionContainer>{/* 옵션 렌더링 */}</OptionContainer>
-      <AddOptionButton>옵션 추가</AddOptionButton>
+      <OptionContainer>
+        {options.map((option, optionIndex) => (
+          <div
+            key={optionIndex}
+            style={{ display: "flex", alignItems: "center", gap: "4px" }}
+          >
+            <OptionInput
+              key={optionIndex}
+              type="text"
+              value={option}
+              onChange={(e) => handleOptionChange(e, optionIndex)}
+            />
+            <OptionDeleteButton
+              questionIndex={questionIndex}
+              optionIndex={optionIndex}
+            />
+          </div>
+        ))}
+      </OptionContainer>
+      <AddOptionButton onClick={handleAddOption}>옵션 추가</AddOptionButton>
     </>
   );
 };

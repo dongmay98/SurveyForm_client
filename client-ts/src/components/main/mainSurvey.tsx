@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Main = styled.div`
   width: 100%;
@@ -50,10 +50,10 @@ const CaseSelect = styled.select`
 const OptionContainer = styled.div`
   width: 100%;
   padding: 5px;
-  border-bottom: 1px solid lightgrey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 5px;
 `;
 
 const OptionInput = styled.input`
@@ -62,6 +62,13 @@ const OptionInput = styled.input`
   width: 100%;
   padding: 5px;
   font-size: 14px;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid lightgray;
+  }
+  &:focus {
+    border-bottom: 1px solid orange;
+  }
 `;
 
 const AddOptionButton = styled.button`
@@ -69,11 +76,12 @@ const AddOptionButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 2px;
+  background-color: white;
   border-radius: 15px;
   font-size: 14px;
   width: 70px;
   height: 30px;
-  color: black;
+  color: gray;
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
   border: none;
@@ -118,4 +126,16 @@ const DeleteOptionButton = styled(ActionButton)`
   height: 30px;
 `;
 
-export {ActionButton,AddOptionButton,CaseSelect,CopyPasteContainer,DeleteOptionButton,Main,MainList,OptionContainer,OptionInput,TitleInput,TitleSelect} ;
+export {
+  ActionButton,
+  AddOptionButton,
+  CaseSelect,
+  CopyPasteContainer,
+  DeleteOptionButton,
+  Main,
+  MainList,
+  OptionContainer,
+  OptionInput,
+  TitleInput,
+  TitleSelect,
+};

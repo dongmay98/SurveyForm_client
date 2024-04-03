@@ -13,7 +13,11 @@ import {
   TitleInput,
   TitleSelect,
 } from "../../../components/main/mainSurvey";
-import { copyQuestion, setQuestionTitle } from "../../../store/surveySlice";
+import {
+  copyQuestion,
+  setQuestionTitle,
+  deleteQuestion,
+} from "../../../store/surveySlice";
 import QuestionTypeSelect from "../QuestionTypeSelect/QuestionTypeSelect";
 import { QUESTION_TYPE } from "QuestionType";
 import ShortOption from "../ShortOption/ShortOption";
@@ -35,9 +39,19 @@ export default function MainContainer() {
       })
     );
   };
-  const AddQuestion = (index: number) => {
+  const HandleCopyQuestion = (index: number) => {
     dispatch(
       copyQuestion({
+        questionIndex: index,
+      })
+    );
+  };
+  const handleDeleteQuestion = (index: number) => {
+    if (questions.length === 1) {
+      return alert("질문은 최소한 한 개 이상을 포함해야 합니다.");
+    }
+    dispatch(
+      deleteQuestion({
         questionIndex: index,
       })
     );
@@ -72,10 +86,12 @@ export default function MainContainer() {
                 }
               })()}
               <CopyPasteContainer>
-                <ActionButton onClick={() => AddQuestion(index)}>
+                <ActionButton onClick={() => HandleCopyQuestion(index)}>
                   복사
                 </ActionButton>
-                <ActionButton>삭제</ActionButton>
+                <ActionButton onClick={() => handleDeleteQuestion(index)}>
+                  삭제
+                </ActionButton>
               </CopyPasteContainer>
             </MainList>
           </Main>
