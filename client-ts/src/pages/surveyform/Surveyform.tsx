@@ -1,8 +1,12 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/index';
-import styles from './css/SurveyStyle.module.css';
-import {Header,HeadTitle,HeadExplain} from '../../components/header/HeaderStyle'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/index";
+import styles from "./css/SurveyStyle.module.css";
+import {
+  Header,
+  HeadTitle,
+  HeadExplain,
+} from "../../components/header/HeaderStyle";
 import {
   setTitle,
   setDesc,
@@ -14,8 +18,9 @@ import {
   copyQuestion,
   deleteQuestion,
   addQuestion,
-} from '../../store/surveySlice';// SurveySlice
-import MainContainer from './main/MainContainer';
+} from "../../store/surveySlice"; // SurveySlice
+import MainContainer from "./main/MainContainer";
+import Sidebar from "./sidebar/Sidebar";
 
 export default function SurveyForm() {
   const dispatch = useDispatch();
@@ -24,7 +29,7 @@ export default function SurveyForm() {
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setTitle({ surveyTitle: e.target.value }));
   };
-  
+
   const handleDescChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setDesc({ desc: e.target.value }));
   };
@@ -43,8 +48,8 @@ export default function SurveyForm() {
           onChange={handleDescChange}
         />
       </Header>
-      <MainContainer/>
-
+      <MainContainer />
+      <Sidebar />
     </section>
   );
 }
