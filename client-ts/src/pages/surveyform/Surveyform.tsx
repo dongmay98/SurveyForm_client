@@ -7,7 +7,7 @@ import {
   HeadTitle,
   HeadExplain,
 } from "../../components/header/HeaderStyle";
-import { setTitle, setDesc } from "../../store/surveySlice"; // SurveySlice
+import { setTitle, setDesc } from "../../store/surveySlice";
 import MainContainer from "./main/MainContainer";
 import Sidebar from "./sidebar/Sidebar";
 

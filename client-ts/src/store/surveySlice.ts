@@ -82,6 +82,7 @@ export const surveySlice = createSlice({
     ) {
       const { questionIndex, optionIndex, text } = action.payload;
       state.questions[questionIndex].options![optionIndex] = text;
+      console.log(text, optionIndex, questionIndex);
     },
 
     // 질문(객관식, 체크박스, 드롭다운 유형) option 추가

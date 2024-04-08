@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import addIcon from "../../../assets/icons/icon_add.svg";
 import sampleIcon from "../../../assets/icons/icon_sample.svg";
+import { useDispatch } from "react-redux";
+import { addQuestion } from "store/surveySlice";
 
 const SidebarContainer = styled.div`
   width: 50px;
@@ -29,12 +31,19 @@ const IconButton = styled.button`
 `;
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
+  const handleAddQuestion = () => {
+    dispatch(addQuestion());
+  };
   return (
     <SidebarContainer>
-      <IconButton>
+      <IconButton onClick={handleAddQuestion}>
+        {/* Add question button */}
         <img src={addIcon} alt="Add Icon" width={"30px"} />
       </IconButton>
       <IconButton>
+        {/* Sample button */}
         <img src={sampleIcon} alt="Sample Icon" width={"35px"} />
       </IconButton>
     </SidebarContainer>
