@@ -9,8 +9,8 @@ const ShortAnswer = styled.p`
   margin-left: 5px;
   margin-top: 8px;
 `;
-const ShortOptionContainer = ({ questionIndex }: { questionIndex: number }) => {
+const ShortOption = ({ questionIndex }: { questionIndex: number }) => {
   return <ShortAnswer>단답형 텍스트</ShortAnswer>;
 };
 
-export default ShortOptionContainer;
+export { ShortOption, ShortAnswer };

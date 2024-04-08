@@ -8,11 +8,11 @@ export interface surveyState {
 }
 
 const initialState: surveyState = {
-  surveyTitle: "",
-  desc: "",
+  surveyTitle: "설문지 제목",
+  desc: "설문지 설명",
   questions: [
     {
-      questionTitle: "",
+      questionTitle: "제목 없는 질문",
       type: QUESTION_TYPE.MULTIPLE,
       required: true,
       options: ["옵션1"],

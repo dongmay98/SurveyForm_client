@@ -2,14 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/index";
 import {
   ActionButton,
-  AddOptionButton,
-  CaseSelect,
   CopyPasteContainer,
-  DeleteOptionButton,
   Main,
   MainList,
-  OptionContainer,
-  OptionInput,
   TitleInput,
   TitleSelect,
 } from "../../../components/main/mainSurvey";
@@ -20,7 +15,7 @@ import {
 } from "../../../store/surveySlice";
 import QuestionTypeSelect from "../QuestionTypeSelect/QuestionTypeSelect";
 import { QUESTION_TYPE } from "QuestionType";
-import ShortOption from "../ShortOption/ShortOption";
+import { ShortOption } from "../ShortOption/ShortOption";
 import MultipleOption from "../MultipleOption/MultipleOption";
 import CheckboxOption from "../CheckboxOption/CheckboxOption";
 
