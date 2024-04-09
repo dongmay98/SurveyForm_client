@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Header = styled.header`
   margin-top: 20px;
@@ -23,6 +23,7 @@ const HeadTitle = styled.input`
   width: 100%;
   padding: 5px;
   font-size: 24px;
+  border-bottom: 1px solid orange;
 `;
 
 const HeadExplain = styled.input`
@@ -32,4 +33,4 @@ const HeadExplain = styled.input`
   padding: 5px;
   font-size: 16px;
 `;
-export {Header,HeadTitle,HeadExplain};
+export { Header, HeadTitle, HeadExplain };
