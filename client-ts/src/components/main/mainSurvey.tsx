@@ -33,6 +33,7 @@ const TitleInput = styled.input`
   border: none;
   width: 100%;
   padding: 5px;
+  border-bottom: 1px solid orange;
 `;
 
 const CaseSelect = styled.select`

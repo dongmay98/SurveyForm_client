@@ -1,26 +1,48 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
 import {
   OptionContainer,
   OptionInput,
 } from "../../../../components/main/mainSurvey";
+import { selectOption } from "store/surveySlice";
 
 const MultipleOptionPreview = ({
   questionIndex,
 }: {
   questionIndex: number;
 }) => {
-  const { questions } = useSelector((state: RootState) => state.survey);
+  const dispatch = useDispatch();
+  const { questions, selectedOptions } = useSelector(
+    (state: RootState) => state.survey
+  );
   const options = questions[questionIndex].options || [];
 
+  const handleOptionChange = (value: string) => {
+    dispatch(selectOption({ questionIndex, value }));
+  };
+
   return (
-    <OptionContainer style={{ marginTop: "10px" }}>
+    <OptionContainer>
       {options.map((option, optionIndex) => (
         <div
           key={optionIndex}
           style={{ display: "flex", alignItems: "center", gap: "4px" }}
         >
-          <OptionInput type="text" value={option} readOnly />
+          <input
+            type="radio"
+            id={`question-${questionIndex}-option-${optionIndex}`}
+            name={`question-${questionIndex}`}
+            value={option}
+            checked={selectedOptions.some(
+              (selectedOption) =>
+                selectedOption.questionIndex === questionIndex &&
+                selectedOption.value === option
+            )}
+            onChange={() => handleOptionChange(option)}
+          />
+          <label htmlFor={`question-${questionIndex}-option-${optionIndex}`}>
+            {option}
+          </label>
         </div>
       ))}
     </OptionContainer>

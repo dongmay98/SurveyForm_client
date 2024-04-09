@@ -47,6 +47,7 @@ const Sidebar = () => {
   const handlePreviewClose = () => {
     setIsPreviewOpen(false);
   };
+
   return (
     <>
       <SidebarContainer>
@@ -57,12 +58,10 @@ const Sidebar = () => {
           <img src={sampleIcon} alt="Sample Icon" width="35px" />
         </IconButton>
       </SidebarContainer>
-      {isPreviewOpen && (
-        <div>
-          <button onClick={handlePreviewClose}>Close Preview</button>
-          <SurveyPreview />
-        </div>
-      )}
+      <SurveyPreview
+        isOpen={isPreviewOpen}
+        onRequestClose={handlePreviewClose}
+      />
     </>
   );
 };
