@@ -1,10 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Question, QUESTION_TYPE, QUESTION_TYPE_ARRAY } from "../QuestionType";
 
+export interface SelectedOption {
+  questionIndex: number;
+  value: string;
+}
 export interface surveyState {
   surveyTitle: string;
   desc: string;
   questions: Question[];
+  selectedOptions: SelectedOption[];
 }
 
 const initialState: surveyState = {
@@ -18,6 +23,7 @@ const initialState: surveyState = {
       options: ["옵션1"],
     },
   ],
+  selectedOptions: [],
 };
 
 export const surveySlice = createSlice({
@@ -137,6 +143,37 @@ export const surveySlice = createSlice({
 
       state.questions.push(newQuestion);
     },
+
+    // 단답형 질문의 답변 업데이트
+    setShortAnswer(
+      state,
+      action: PayloadAction<{ questionIndex: number; text: string }>
+    ) {
+      state.questions[action.payload.questionIndex].text = action.payload.text;
+    },
+    selectOption: (state, action: PayloadAction<SelectedOption>) => {
+      const { questionIndex, value } = action.payload;
+      const index = state.selectedOptions.findIndex(
+        (option) => option.questionIndex === questionIndex
+      );
+      if (index > -1) {
+        state.selectedOptions[index].value = value;
+      } else {
+        state.selectedOptions.push({ questionIndex, value });
+      }
+    },
+    selectMultipleOptions: (state, action: PayloadAction<SelectedOption>) => {
+      const { questionIndex, value } = action.payload;
+      const index = state.selectedOptions.findIndex(
+        (option) =>
+          option.questionIndex === questionIndex && option.value === value
+      );
+      if (index > -1) {
+        state.selectedOptions.splice(index, 1);
+      } else {
+        state.selectedOptions.push({ questionIndex, value });
+      }
+    },
   },
 });
 
@@ -151,4 +188,6 @@ export const {
   copyQuestion,
   deleteQuestion,
   addQuestion,
+  selectOption,
+  selectMultipleOptions,
 } = surveySlice.actions;
