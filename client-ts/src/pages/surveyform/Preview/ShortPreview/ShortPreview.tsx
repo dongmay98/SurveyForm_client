@@ -1,6 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../../store";
 import styled from "styled-components";
+import { setShortAnswer } from "../../../../store/surveySlice";
 
 const ShortAnswerPreview = styled.input`
   width: 100%;
@@ -11,12 +12,26 @@ const ShortAnswerPreview = styled.input`
   margin-top: 8px;
   border: none;
 `;
+
 const ShortPreview = ({ questionIndex }: { questionIndex: number }) => {
+  const dispatch = useDispatch();
   const survey = useSelector((state: RootState) => state.survey);
   const { questions } = survey;
-  const options = questions[questionIndex].options || [];
+  const text = questions[questionIndex].text || "";
 
-  return <ShortAnswerPreview type="text" value={"단답형 답변"} />;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setShortAnswer({ questionIndex, text: e.target.value }));
+    console.log(text);
+  };
+
+  return (
+    <ShortAnswerPreview
+      type="text"
+      value={text}
+      onChange={handleChange}
+      placeholder="단답형 답변"
+    />
+  );
 };
 
 export default ShortPreview;

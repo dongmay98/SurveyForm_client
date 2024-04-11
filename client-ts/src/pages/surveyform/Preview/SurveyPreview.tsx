@@ -18,6 +18,8 @@ import CheckboxPreview from "./CheckBoxPreview/CheckBoxPreview";
 import ShortPreview from "./ShortPreview/ShortPreview";
 import { modalStyles } from "./PreviewModalStyle";
 import axios from "axios";
+import CloseButton from "../../../components/button/PreviewCloseButton/PreviewCloseButton";
+import SubmitButton from "../../../components/button/PreviewSubmitButton/PreviewSubmitButton";
 
 Modal.setAppElement("#root");
 
@@ -35,28 +37,34 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
 
   const handleSubmit = async () => {
     try {
-      // 요청본문에 surveyData를 추가
       const response = await axios.post(
         "http://localhost:8080/submit-survey",
         {
           surveyData: {
             surveyTitle: survey.surveyTitle,
             surveyDescription: survey.desc,
-            questions: questions.map((question, index) => ({
-              questionTitle: question.questionTitle,
-              questionType: question.type,
-              selectedOptions: survey.selectedOptions.filter(
-                (option) => option.questionIndex === index
-              ),
-            })),
+            questions: questions.map((question, index) => {
+              const selectedOptions = survey.selectedOptions
+                .filter((option) => option.questionIndex === index)
+                .map((option) => ({
+                  optionIndex: option.optionIndex,
+                  value: option.value,
+                }));
+
+              return {
+                questionTitle: question.questionTitle,
+                questionType: question.type,
+                text: question.type === "단답형" ? question.text || "" : "",
+                selectedOptions: selectedOptions,
+              };
+            }),
           },
         },
-        {
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
-
-      console.log(response.data.message);
+      if (response.status === 200) {
+        alert("설문조사가 성공적으로 제출되었습니다.(스팸메일도 확인해주세요)");
+      }
       onRequestClose();
     } catch (error) {
       console.error("Error submitting survey:", error);
@@ -96,10 +104,8 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
           </Main>
         );
       })}
-      <button onClick={onRequestClose}>닫기</button>
-      <button style={{ marginLeft: "5px" }} onClick={handleSubmit}>
-        제출
-      </button>
+      <CloseButton onClick={onRequestClose} />
+      <SubmitButton onClick={handleSubmit} />
     </Modal>
   );
 };

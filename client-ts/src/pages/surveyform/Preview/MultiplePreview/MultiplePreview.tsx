@@ -17,8 +17,8 @@ const MultipleOptionPreview = ({
   );
   const options = questions[questionIndex].options || [];
 
-  const handleOptionChange = (value: string) => {
-    dispatch(selectOption({ questionIndex, value }));
+  const handleOptionChange = (optionIndex: number, value: string) => {
+    dispatch(selectOption({ questionIndex, optionIndex, value }));
   };
 
   return (
@@ -36,9 +36,9 @@ const MultipleOptionPreview = ({
             checked={selectedOptions.some(
               (selectedOption) =>
                 selectedOption.questionIndex === questionIndex &&
-                selectedOption.value === option
+                selectedOption.optionIndex === optionIndex
             )}
-            onChange={() => handleOptionChange(option)}
+            onChange={() => handleOptionChange(optionIndex, option)}
           />
           <label htmlFor={`question-${questionIndex}-option-${optionIndex}`}>
             {option}
