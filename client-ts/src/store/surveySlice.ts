@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Question, QUESTION_TYPE, QUESTION_TYPE_ARRAY } from "../QuestionType";
 
 export interface SelectedOption {
+  optionIndex: any;
   questionIndex: number;
   value: string;
 }
@@ -151,18 +152,30 @@ export const surveySlice = createSlice({
     ) {
       state.questions[action.payload.questionIndex].text = action.payload.text;
     },
-    selectOption: (state, action: PayloadAction<SelectedOption>) => {
-      const { questionIndex, value } = action.payload;
+    selectOption: (
+      state,
+      action: PayloadAction<{
+        questionIndex: number;
+        optionIndex: number;
+        value: string;
+      }>
+    ) => {
+      const { questionIndex, optionIndex, value } = action.payload;
       const index = state.selectedOptions.findIndex(
-        (option) => option.questionIndex === questionIndex
+        (option) =>
+          option.questionIndex === questionIndex &&
+          option.optionIndex === optionIndex
       );
       if (index > -1) {
         state.selectedOptions[index].value = value;
       } else {
-        state.selectedOptions.push({ questionIndex, value });
+        state.selectedOptions.push({ questionIndex, optionIndex, value });
       }
     },
-    selectMultipleOptions: (state, action: PayloadAction<SelectedOption>) => {
+    selectMultipleOptions: (
+      state,
+      action: PayloadAction<{ questionIndex: number; value: string }>
+    ) => {
       const { questionIndex, value } = action.payload;
       const index = state.selectedOptions.findIndex(
         (option) =>
@@ -171,7 +184,11 @@ export const surveySlice = createSlice({
       if (index > -1) {
         state.selectedOptions.splice(index, 1);
       } else {
-        state.selectedOptions.push({ questionIndex, value });
+        state.selectedOptions.push({
+          questionIndex,
+          value,
+          optionIndex: undefined,
+        });
       }
     },
   },
@@ -190,4 +207,5 @@ export const {
   addQuestion,
   selectOption,
   selectMultipleOptions,
+  setShortAnswer,
 } = surveySlice.actions;
