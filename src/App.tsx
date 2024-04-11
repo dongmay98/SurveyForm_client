@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/join" element={<Join />} />
