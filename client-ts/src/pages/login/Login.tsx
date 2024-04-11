@@ -26,7 +26,8 @@ export default function Login() {
   };
 
   const loginFn = async (email: string, password: string) => {
-    const reqUrl = "http://localhost:8080/login";
+    const reqUrl =
+      "https://port-0-googleform-server-85phb42bluv1sf6v.sel5.cloudtype.app/login";
     axios
       .post(reqUrl, { email, password }, { withCredentials: true })
       .then((res) => {

@@ -1,30 +1,34 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { IconIpt } from '../../components/input/EtcIpt';
-import { BasicIpt } from '../../components/input/BasicIpt';
-import { BasicBtn } from '../../components/button/BasicBtn';
-import styles from './css/Join.module.css';
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { IconIpt } from "../../components/input/EtcIpt";
+import { BasicIpt } from "../../components/input/BasicIpt";
+import { BasicBtn } from "../../components/button/BasicBtn";
+import styles from "./css/Join.module.css";
 
 export default function Join() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const inputInfo = (e: ChangeEvent<HTMLInputElement>, inputType: React.Dispatch<React.SetStateAction<string>>) => {
+  const inputInfo = (
+    e: ChangeEvent<HTMLInputElement>,
+    inputType: React.Dispatch<React.SetStateAction<string>>
+  ) => {
     inputType(e.target.value);
   };
 
   const joinFn = async () => {
-    const reqUrl = 'http://localhost:8080/join';
+    const reqUrl =
+      "https://port-0-googleform-server-85phb42bluv1sf6v.sel5.cloudtype.app/join";
     try {
       const res = await axios.post(reqUrl, { username, email, password });
       console.log(res);
-      alert('회원가입이 성공했습니다.');
-      navigate('/');
+      alert("회원가입이 성공했습니다.");
+      navigate("/");
     } catch (error) {
-      let message = '회원가입 실패';
+      let message = "회원가입 실패";
       if (axios.isAxiosError(error) && error.response) {
         message = error.response.data.message || message;
       }
@@ -37,17 +41,16 @@ export default function Join() {
     joinFn();
   };
 
-
   return (
     <section className={styles.pageWrap}>
-      <div className={styles['join-Box']}>
-        <div className={styles['title-box']}>
-          <h3 className={styles['join-title']}>회원가입</h3>
-          <strong className={styles['join-ment']}>
+      <div className={styles["join-Box"]}>
+        <div className={styles["title-box"]}>
+          <h3 className={styles["join-title"]}>회원가입</h3>
+          <strong className={styles["join-ment"]}>
             아이디와 이메일로 간편하게 구글폼 제작!
           </strong>
         </div>
-        <div className={styles['info-box']}>
+        <div className={styles["info-box"]}>
           <IconIpt>
             <BasicIpt
               gray={true}
@@ -82,10 +85,7 @@ export default function Join() {
             />
             <i className="icon icon-user-w" />
           </IconIpt>
-          <BasicBtn 
-          type="submit" 
-          onClick={submitJoin}
-          >
+          <BasicBtn type="submit" onClick={submitJoin}>
             가입하기
           </BasicBtn>
         </div>

@@ -38,7 +38,7 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
   const handleSubmit = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/submit-survey",
+        "https://port-0-googleform-server-85phb42bluv1sf6v.sel5.cloudtype.app/submit-survey",
         {
           surveyData: {
             surveyTitle: survey.surveyTitle,
