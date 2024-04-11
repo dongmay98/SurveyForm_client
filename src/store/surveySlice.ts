@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Question, QUESTION_TYPE, QUESTION_TYPE_ARRAY } from "../QuestionType";
+import { Question, QUESTION_TYPE } from "../QuestionType";
 
 export interface SelectedOption {
   optionIndex: any;

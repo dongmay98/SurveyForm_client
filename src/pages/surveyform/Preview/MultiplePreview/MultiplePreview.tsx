@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store";
-import {
-  OptionContainer,
-  OptionInput,
-} from "../../../../components/main/mainSurvey";
+import { OptionContainer } from "../../../../components/main/mainSurvey";
 import { selectOption } from "store/surveySlice";
 
 const MultipleOptionPreview = ({
