@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./css/Login.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,6 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
 
-  // 이벤트 핸들러에서 이벤트 타입을 지정합니다.
   const inputEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -26,14 +25,18 @@ export default function Login() {
     loginFn(email, password);
   };
 
-  // `loginFn` 함수에 async 키워드를 추가하여 비동기 함수로 만들었습니다.
   const loginFn = async (email: string, password: string) => {
     const reqUrl = "http://localhost:8080/login";
     axios
       .post(reqUrl, { email, password }, { withCredentials: true })
       .then((res) => {
         console.log("로그인 성공!", res);
-        alert("로그인성공");
+        alert(
+          "구글폼 제작을 쉽고 빠르게! 이메일로 제출까지 한번에 제작하세요!"
+        );
+        alert(
+          "서동현의 개인 프로젝트입니다. 참고는 좋지만 무단복제는 안됩니다!"
+        );
         navigate("/main");
       })
       .catch((error) => {
@@ -51,13 +54,11 @@ export default function Login() {
             <IconIpt>
               <BasicIpt
                 type="text"
-                placeholder="아이디"
+                placeholder="이메일"
                 value={email}
                 onChange={inputEmail}
               />
               <i className="icon icon icon-user-g" />
-            </IconIpt>
-            <IconIpt>
               <BasicIpt
                 placeholder="비밀번호"
                 type="password"
@@ -67,26 +68,24 @@ export default function Login() {
               />
               <i className="icon icon icon-lock-g" />
             </IconIpt>
-            <label className={styles["login-check"]}>
-              <input type="checkbox" />
-              <span className={styles["check-icon"]} />
-              <span className={styles["check-text"]}> 로그인 상태 유지</span>
-            </label>
-            <BasicBtn type="submit">로그인</BasicBtn>
-          </form>
-        </section>
-        <section className={styles["login-etc"]}>
-          <div className={styles["find-id-join"]}>
-            <p>아이디 찾기 | 비밀번호 찾기</p>
-            <div>
-              아직 계정이 없으신가요?
+
+            <div className={styles.LoginJoinBtnWrap}>
+              <BasicBtn wid="170px" type="submit">
+                로그인
+              </BasicBtn>
               <Link to="/join" className={styles.logintojoin}>
-                회원가입하기
+                <BasicBtn wid="170px" type="submit">
+                  회원가입
+                </BasicBtn>
               </Link>
             </div>
-          </div>
+          </form>
         </section>
       </div>
+      {/* <p className={styles.intro}>
+        구글폼 제작을 쉽고 빠르게!
+        <br /> 이메일로 제출까지 한번에 제작하세요!
+      </p> */}
     </div>
   );
 }

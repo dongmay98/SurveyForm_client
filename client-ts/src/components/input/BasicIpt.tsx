@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 // props의 타입을 정의합니다.
 interface BasicIptProps {
@@ -12,11 +12,13 @@ interface BasicIptProps {
 }
 
 const BasicIpt = styled.input<BasicIptProps>`
-  width: ${(props) => props.wid || '100%'};
+  width: ${(props) => props.wid || "100%"};
   padding: 30px 18px;
-  background-color: ${(props) => props.bgColor || '#fff'};
-  box-shadow: ${(props) => props.shadow || '0px 0px 4px 0px rgba(133, 133, 133, 0.25)'};
+  background-color: ${(props) => props.bgColor || "#fff"};
+  box-shadow: ${(props) =>
+    props.shadow || "0px 0px 4px 0px rgba(133, 133, 133, 0.25)"};
   border-radius: 10px;
+  border: none;
   font-size: 18px;
   color: #000;
 
@@ -57,7 +59,7 @@ const BasicIpt = styled.input<BasicIptProps>`
     outline: 1px solid #000;
   }
   &::placeholder {
-    color: ${(props) => props.gray ? '#ffffff' : 'rgba(133, 133, 133, 0.25)'};
+    color: ${(props) => (props.gray ? "#ffffff" : "rgba(133, 133, 133, 0.25)")};
   }
 `;
 

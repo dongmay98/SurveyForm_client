@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 interface BasicBtnProps {
   wid?: string;
@@ -13,16 +13,23 @@ interface BasicBtnProps {
 }
 
 const BasicBtn = styled.button<BasicBtnProps>`
-  width: ${(props) => props.wid || 'auto'};
-  height: 80px;
+  width: ${(props) => props.wid || "auto"};
+  height: 70px;
   padding: 0 15px;
-  background-color: ${(props) => props.bgcolor || '#000'};
-  color: #fff;
+  background-color: ${(props) => props.bgcolor || "#fff"};
+  justify-content: center;
   text-align: center;
-  font-size: 22px;
-  border-radius: ${(props) => props.round || '10px'};
-  box-shadow: ${(props) => props.shadow || '0px 0px 4px 0px rgba(0, 0, 0, 0.25)'};
-  font-weight: ${(props) => props.weight || 'normal'};
+  font-size: 20px;
+  border-radius: ${(props) => props.round || "10px"};
+  box-shadow: ${(props) =>
+    props.shadow || "0px 0px 4px 0px rgba(0, 0, 0, 0.25)"};
+  font-weight: ${(props) => props.weight || "normal"};
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid orange;
+    background-color: orange;
+  }
   ${(props) =>
     props.linestyle &&
     css`

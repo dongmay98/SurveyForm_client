@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { BasicIpt } from './BasicIpt';
-import { BasicBtn } from '../button/BasicBtn';
+import styled from "styled-components";
+import { BasicIpt } from "./BasicIpt";
+import { BasicBtn } from "../button/BasicBtn";
 
 const LabelIpt = styled.label`
   color: #777;
@@ -13,6 +13,8 @@ const LabelIpt = styled.label`
 const IconIpt = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
+  gap: 17px;
   ${BasicIpt} {
     padding-left: 50px !important;
   }
@@ -71,7 +73,7 @@ const SearchIpt = styled.form`
     transition: all 0.3s;
     box-shadow: none;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 50%;
