@@ -23,7 +23,11 @@ export default function Join() {
     const reqUrl =
       "https://port-0-googleform-server-85phb42bluv1sf6v.sel5.cloudtype.app/join";
     try {
-      const res = await axios.post(reqUrl, { username, email, password });
+      const res = await axios.post(
+        reqUrl,
+        { username, email, password },
+        { withCredentials: true }
+      );
       console.log(res);
       alert("회원가입이 성공했습니다.");
       navigate("/");
