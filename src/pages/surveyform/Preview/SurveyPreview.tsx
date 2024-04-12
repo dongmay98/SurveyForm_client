@@ -62,7 +62,7 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
         },
         { withCredentials: true }
       );
-      if (response.status === 200) {
+      if (response.status >= 200 && response.status < 300) {
         alert("설문조사가 성공적으로 제출되었습니다.(스팸메일도 확인해주세요)");
       }
       onRequestClose();
