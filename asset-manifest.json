@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GoogleForm_client-TS/static/css/main.97db0cbf.css",
-    "main.js": "/GoogleForm_client-TS/static/js/main.149e7a56.js",
+    "main.js": "/GoogleForm_client-TS/static/js/main.b0a0b93c.js",
     "static/media/icon_sample.svg": "/GoogleForm_client-TS/static/media/icon_sample.f3abd83b0cbffa04af9a7902e57a9d1f.svg",
     "index.html": "/GoogleForm_client-TS/index.html",
     "static/media/icon_add.svg": "/GoogleForm_client-TS/static/media/icon_add.9ac87384bac7232275e4285f468b093a.svg",
     "main.97db0cbf.css.map": "/GoogleForm_client-TS/static/css/main.97db0cbf.css.map",
-    "main.149e7a56.js.map": "/GoogleForm_client-TS/static/js/main.149e7a56.js.map"
+    "main.b0a0b93c.js.map": "/GoogleForm_client-TS/static/js/main.b0a0b93c.js.map"
   },
   "entrypoints": [
     "static/css/main.97db0cbf.css",
-    "static/js/main.149e7a56.js"
+    "static/js/main.b0a0b93c.js"
   ]
 }
