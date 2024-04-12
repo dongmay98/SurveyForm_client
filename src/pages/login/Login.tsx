@@ -38,6 +38,7 @@ export default function Login() {
         alert(
           "서동현의 개인 프로젝트입니다. 참고는 좋지만 무단복제는 안됩니다!"
         );
+        localStorage.setItem("userEmail", email);
         navigate("/main");
       })
       .catch((error) => {

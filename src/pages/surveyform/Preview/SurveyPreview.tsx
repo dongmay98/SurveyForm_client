@@ -34,6 +34,7 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
 }) => {
   const survey = useSelector((state: RootState) => state.survey);
   const { questions } = survey;
+  const userEmail = localStorage.getItem("userEmail");
 
   const handleSubmit = async () => {
     try {
@@ -59,6 +60,7 @@ const SurveyPreview: React.FC<PreviewModalProps> = ({
               };
             }),
           },
+          userEmail: userEmail,
         },
         { withCredentials: true }
       );
