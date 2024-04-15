@@ -28,15 +28,10 @@
 | Frontend                    | Backend                                  |
 | ----------------------------- | -------------------------------------------------------- |
 |<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white" alt="React.js"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"><img src="https://img.shields.io/badge/Redux%20Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white" alt="Redux Toolkit"><img src="https://img.shields.io/badge/Styled%20Components-DB7093?style=flat-square&logo=styled-components&logoColor=white" alt="Styled Components"><img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white" alt="Axios">|<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js"><img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express.js"><img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB"><img src="https://img.shields.io/badge/Mongoose-880000?style=flat-square&logo=mongoose&logoColor=white" alt="Mongoose"><img src="https://img.shields.io/badge/Passport-34E27A?style=flat-square&logo=passport&logoColor=white" alt="Passport.js"><img src="https://img.shields.io/badge/Nodemailer-339AF0?style=flat-square&logo=nodemailer&logoColor=white" alt="Nodemailer"> |
-|~~~|~~~|
-<h2>🚀 Performance Optimization</h2> 
-<ul>
-  <li>~~</li> 
-  <li>~~</li> 
-  <li>~~</li> 
-</ul> 
 
-<h2>💻 Code Examples</h2>
+## 🚀 기능시연
 
-<p>This project is a web application that clones the main features of Google Form. The frontend is developed using React.js and TypeScript, while the backend is built with Node.js and Express.js. MongoDB is used for data storage and management.</p> <p>To enhance the user experience, Redux Toolkit and Styled Components are utilized for optimized state management and styling. The email sending functionality is implemented using Nodemailer.</p> <p>The project's source code can be found in the GitHub repository.</p> 
-<div align="center"> <a href="https://github.com/your-username/google-form-clone" target="_blank"> <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository"> </a> </div>
+![image](https://github.com/dongmay98/SurveyForm_client/assets/108654814/7de7f770-cf32-4b8c-9d29-de8b33951f44) | ![image](https://github.com/dongmay98/SurveyForm_client/assets/108654814/fd6c7d27-e412-4a9e-8868-594116577f44)
+---|---
+![image](https://github.com/dongmay98/SurveyForm_client/assets/108654814/f4f46780-08a4-408b-af1f-fcb9a26f9b57) | ![image](https://github.com/dongmay98/SurveyForm_client/assets/108654814/c98329bf-1f33-449d-a5a8-84709462353d)
+![image](https://github.com/dongmay98/SurveyForm_client/assets/108654814/0f58633a-2030-4eeb-8257-6bcac7dac0b1)
