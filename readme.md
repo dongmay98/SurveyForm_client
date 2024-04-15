@@ -8,7 +8,7 @@
 <ul> 
   <li>
     Frontend: <a href="https://pages.github.com" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white" alt="GitHub Pages"></a>
-    <a href="https://dongmay98.github.io/GoogleForm_client-TS/">go to link</a>
+    <a href="https://dongmay98.github.io/SurveyForm_client">go to link</a>
   </li> 
   <li>
     Backend: <a href="https://cloudtype.io" target="_blank"><img src="https://img.shields.io/badge/Cloudtype-3178C6?style=flat-square&logo=cloudtype&logoColor=white" alt="Cloudtype"></a>
