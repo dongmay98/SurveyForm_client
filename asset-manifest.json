@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/SurveyForm_client-TS/static/css/main.97db0cbf.css",
-    "main.js": "/SurveyForm_client-TS/static/js/main.79371d47.js",
-    "static/media/icon_sample.svg": "/SurveyForm_client-TS/static/media/icon_sample.f3abd83b0cbffa04af9a7902e57a9d1f.svg",
-    "index.html": "/SurveyForm_client-TS/index.html",
-    "static/media/icon_add.svg": "/SurveyForm_client-TS/static/media/icon_add.9ac87384bac7232275e4285f468b093a.svg",
-    "main.97db0cbf.css.map": "/SurveyForm_client-TS/static/css/main.97db0cbf.css.map",
-    "main.79371d47.js.map": "/SurveyForm_client-TS/static/js/main.79371d47.js.map"
+    "main.css": "/SurveyForm_client/static/css/main.97db0cbf.css",
+    "main.js": "/SurveyForm_client/static/js/main.4328dcaf.js",
+    "static/media/icon_sample.svg": "/SurveyForm_client/static/media/icon_sample.f3abd83b0cbffa04af9a7902e57a9d1f.svg",
+    "index.html": "/SurveyForm_client/index.html",
+    "static/media/icon_add.svg": "/SurveyForm_client/static/media/icon_add.9ac87384bac7232275e4285f468b093a.svg",
+    "main.97db0cbf.css.map": "/SurveyForm_client/static/css/main.97db0cbf.css.map",
+    "main.4328dcaf.js.map": "/SurveyForm_client/static/js/main.4328dcaf.js.map"
   },
   "entrypoints": [
     "static/css/main.97db0cbf.css",
-    "static/js/main.79371d47.js"
+    "static/js/main.4328dcaf.js"
   ]
 }
